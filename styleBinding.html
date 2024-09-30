@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- View -->
+    Input Marks
+    <input type="text" data-bind="value: marks" style="width: 240px" />
+    <div data-bind="style:{color: marks()<50?'red':'green'}">Result</div>
+  </body>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"
+  ></script>
+  <script type="text/javascript">
+    var viewModel = {
+      marks: ko.observable(100),
+    };
+    ko.applyBindings(viewModel);
+  </script>
+</html>

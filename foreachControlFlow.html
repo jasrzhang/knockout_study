@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>First name</th>
+          <th>Last name</th>
+        </tr>
+      </thead>
+      <tbody data-bind="foreach: people">
+        <tr>
+          <td data-bind="text: firstName"></td>
+          <td data-bind="text: lastName"></td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li class="header">Fruits</li>
+      <!-- ko foreach: fruits -->
+      <li>Item <span data-bind="text: $data"></span></li>
+      <!-- /ko -->
+    </ul>
+  </body>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"
+  ></script>
+  <script typ="text/javascript">
+    ko.applyBindings({
+      people: [
+        { firstName: "John", lastName: "lafrata" },
+        { firstName: "Matt", lastName: "Daemon" },
+        { firstName: "Charles", lastName: "Darwin" },
+      ],
+      fruits: ["Apple", "Banana", "Coconut"],
+    });
+  </script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- The View  -->
+    <div>
+      First Name:<input
+        type="text"
+        data-bind="value: firstName"
+        style="width: 240px"
+      />
+    </div>
+    <div>
+      Last Name:<input
+        type="text"
+        data-bind="value: lastName"
+        style="width: 240px"
+      />
+    </div>
+    <div>Full Name: <span data-bind="text: fullName"></span></div>
+
+    <!-- Editable inputString field -->
+    <div>
+      Ingredients:<input
+        type="text"
+        data-bind="value: inputString"
+        style="width: 500px"
+      />
+    </div>
+
+    <!-- Display highlighted allergens -->
+    <div>
+      Highlighted Ingredients:
+      <div data-bind="html: highlightedString"></div>
+    </div>
+  </body>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="javascript/computedObservables.js"
+  ></script>
+</html>

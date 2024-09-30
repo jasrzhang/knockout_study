@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form data-bind="submit: addItems">
+      New Item:<input
+        type="text"
+        data-bind="value: itemToAdd, valueUpdate:'afterkeydown'"
+      />
+      <input
+        type="submit"
+        value="Add Items"
+        data-bind="enable: itemToAdd().length>0"
+      />
+      <p>Items added</p>
+      <select multiple width="80px" data-bind="options: items"></select>
+    </form>
+  </body>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"
+  ></script>
+  <script type="text/javascript" src="javascript/observableArray.js"></script>
+</html>

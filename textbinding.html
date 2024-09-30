@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Binding</title>
+  </head>
+  <body>
+    <!-- View -->
+    Name of Person is:
+    <input type="text" data-bind="value: firstName" style="width: 240px" />
+    name of Person is: <span data-bind="text: firstName"></span>
+    <!-- End -->
+  </body>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"
+  ></script>
+  <script type="text/javascript">
+    var viewModel = {
+      firstName: ko.observable("Matt"),
+    };
+    ko.applyBindings(viewModel);
+  </script>
+</html>
