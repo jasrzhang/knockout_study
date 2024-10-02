@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Binding - checked</title>
+  </head>
+  <body>
+    <p>
+      <input type="checkbox" data-bind="checked: hasTelephone" />
+      I have a telephone
+    </p>
+    <p>
+      Your telephone number:
+      <input
+        type="text"
+        data-bind="value: telephoneNumber, enable: hasTelephone"
+      />
+    </p>
+  </body>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"
+  ></script>
+  <script type="text/javascript">
+    var viewModel = {
+      numberOfClicks: ko.observable(0),
+      incrementClickCounter: function () {
+        var previousCount = this.numberOfClicks();
+        this.numberOfClicks(previousCount + 1);
+      },
+      functionWithParam: function (param1, param2) {
+        alert(param1 + " " + param2);
+      },
+    };
+    ko.applyBindings(viewModel);
+  </script>
+</html>

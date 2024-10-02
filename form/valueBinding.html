@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Binding - Value</title>
+  </head>
+  <body>
+    <p>
+      First name:
+      <input data-bind="value: firstName, valueUpdate: 'afterKeydown'" />
+    </p>
+    <p>Last name: <input data-bind="value: lastName" /></p>
+    <p>No Binding: <input data-bind="value: lastName.length > 8" /></p>
+    <div data-bind="html: firstName"></div>
+  </body>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"
+  ></script>
+  <script type="text/javascript">
+    var viewModel = {
+      firstName: ko.observable("Matt"),
+      lastName: "Deamon",
+    };
+    ko.applyBindings(viewModel);
+  </script>
+</html>

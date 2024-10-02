@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label
+      ><input type="checkbox" data-bind="checked: terms" /> Display Terms and
+      Conditions
+    </label>
+    <div data-bind="if: terms">Terms and Conditions</div>
+  </body>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"
+  ></script>
+  <script type="text/javascript">
+    var viewModel = {
+      terms: ko.observable(false),
+    };
+    ko.applyBindings(viewModel);
+  </script>
+</html>
