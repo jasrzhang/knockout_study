@@ -1,0 +1,62 @@
+[
+  {
+    "email": "john.doe@example.com",
+    "name": "John Doe",
+    "department": "Sales",
+    "gender": "Male"
+  },
+  {
+    "email": "jane.smith@example.com",
+    "name": "Jane Smith",
+    "department": "Sales",
+    "gender": "Female"
+  },
+  {
+    "email": "mark.jones@example.com",
+    "name": "Mark Jones",
+    "department": "Sales",
+    "gender": "Male"
+  },
+  {
+    "email": "emily.brown@example.com",
+    "name": "Emily Brown",
+    "department": "Sales",
+    "gender": "Female"
+  },
+  {
+    "email": "michael.lee@example.com",
+    "name": "Michael Lee",
+    "department": "IT",
+    "gender": "Male"
+  },
+  {
+    "email": "olivia.williams@example.com",
+    "name": "Olivia Williams",
+    "department": "IT",
+    "gender": "Female"
+  },
+  {
+    "email": "robert.wilson@example.com",
+    "name": "Robert Wilson",
+    "department": "IT",
+    "gender": "Male"
+  },
+  {
+    "email": "sophia.davis@example.com",
+    "name": "Sophia Davis",
+    "department": "Customer Support",
+    "gender": "Female"
+  },
+  {
+    "email": "david.miller@example.com",
+    "name": "David Miller",
+    "department": "Operations",
+    "gender": "Male"
+  },
+  {
+    "email": "linda.moore@example.com",
+    "name": "Linda Moore",
+    "department": "Operations",
+    "gender": "Female"
+  }
+]

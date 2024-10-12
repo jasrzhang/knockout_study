@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="filter">Filter by email:</label>
+    <input
+      type="text"
+      id="filter"
+      data-bind="value: emailFilter, valueUpdate: 'input'"
+      placeholder="Enter email address"
+    />
+    <label for="department">Filter by department:</label>
+    <select
+      id="department"
+      data-bind="options: availableDepartments, value: departmentFilter, optionsCaption: 'Select a department'"
+    ></select>
+    <label for="gender">Filter by gender:</label>
+    <select
+      id="gender"
+      data-bind="options: availableGenders, value: genderFilter, optionsCaption: 'Select a gender'"
+    ></select>
+
+    <table>
+      <tr>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Gender</th>
+      </tr>
+      <tbody data-bind="foreach: filteredEmployees">
+        <tr>
+          <td data-bind="text: email"></td>
+          <td data-bind="text: name"></td>
+          <td data-bind="text: department"></td>
+          <td data-bind="text: gender"></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"
+  ></script>
+  <script type="text/javascript">
+    function viewModel() {
+      const self = this;
+      self.employees = ko.observableArray([]);
+      self.emailFilter = ko.observable("");
+      self.departmentFilter = ko.observable("");
+      self.availableDepartments = ko.observableArray([]);
+      self.genderFilter = ko.observable("");
+      self.availableGenders = ko.observableArray([]);
+
+      // Computed observable for filtered employees
+      self.filteredEmployees = ko.computed(function () {
+        const emailFilter = self.emailFilter().toLowerCase();
+        const departmentFilter = self.departmentFilter();
+        const genderFilter = self.genderFilter();
+
+        return ko.utils.arrayFilter(self.employees(), function (employee) {
+          const matchesEmail =
+            employee.email.toLowerCase().includes(emailFilter) || !emailFilter;
+          const matchesDepartment =
+            !departmentFilter || employee.department === departmentFilter;
+          const matchesGender =
+            !genderFilter || employee.gender === genderFilter;
+          return matchesEmail && matchesDepartment && matchesGender;
+        });
+      });
+
+      fetch("dummy.json")
+        .then((response) => response.json())
+        .then((data) => {
+          self.employees(data);
+          const departments = [...new Set(data.map((emp) => emp.department))];
+          self.availableDepartments(departments);
+          const genders = [...new Set(data.map((emp) => emp.gender))];
+          self.availableGenders(genders);
+        })
+        .catch((error) => console.error("Error loading data", error));
+    }
+
+    ko.applyBindings(new viewModel());
+  </script>
+</html>
